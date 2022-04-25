@@ -28,19 +28,19 @@ public class CreditAccountController {
         return ResponseEntity.ok(cardService.findAll());
     }
 
-    @GetMapping("/all/dni/{dni}")
-    public Flux<CreditAccount> findAllByDni(@PathVariable String dni){
-        return cardService.findAllByDni(dni);
+    @GetMapping("/all/identifier/{identifier}")
+    public Flux<CreditAccount> findAllByIdentifier(@PathVariable String identifier){
+        return cardService.findAllByIdentifier(identifier);
     }
 
-    @GetMapping("/dni/{dni}")
-    public Mono<Boolean> findByDni(@PathVariable String dni){
-        return cardService.findByDni(dni);
+    @GetMapping("/identifier/{identifier}")
+    public Mono<Boolean> findByIdentifier(@PathVariable String identifier){
+        return cardService.findByIdentifier(identifier);
     }
 
-    @GetMapping("/dni/{dni}/account/{account}")
-    public Mono<CreditAccount> findByDniAndAccount(@PathVariable String dni,@PathVariable String account){
-        return cardService.findByDniAndAccount(dni,account);
+    @GetMapping("/identifier/{identifier}/account/{account}")
+    public Mono<CreditAccount> findByIdentifierAndAccount(@PathVariable String identifier, @PathVariable String account){
+        return cardService.findByIdentifierAndAccount(identifier,account);
     }
 
     @PostMapping

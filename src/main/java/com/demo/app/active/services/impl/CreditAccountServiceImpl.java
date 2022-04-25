@@ -36,18 +36,18 @@ public class CreditAccountServiceImpl implements CreditAccountService {
     }
 
     @Override
-    public Flux<CreditAccount> findAllByDni(String dni) {
-        return creditAccountRepository.findAllByDni(dni);
+    public Flux<CreditAccount> findAllByIdentifier(String identifier) {
+        return creditAccountRepository.findAllByIdentifier(identifier);
     }
 
     @Override
-    public Mono<CreditAccount> findByDniAndAccount(String dni, String account) {
-        return creditAccountRepository.findByDniAndAccountNumber(dni,account);
+    public Mono<CreditAccount> findByIdentifierAndAccount(String identifier, String account) {
+        return creditAccountRepository.findByIdentifierAndAccountNumber(identifier,account);
     }
 
     @Override
-    public Mono<Boolean> findByDni(String dni) {
-        return creditAccountRepository.findByDni(dni).hasElement().flatMap(CreditAccountServiceImpl::apply);
+    public Mono<Boolean> findByIdentifier(String identifier) {
+        return creditAccountRepository.findByIdentifier(identifier).hasElement().flatMap(CreditAccountServiceImpl::apply);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class CreditAccountServiceImpl implements CreditAccountService {
             x.setAccountNumber(card.getAccountNumber());
             x.setCurrency(card.getCurrency());
             x.setBalance(card.getBalance());
-            x.setDni(card.getDni());
+            x.setIdentifier(card.getIdentifier());
             return creditAccountRepository.save(x);
         });
     }

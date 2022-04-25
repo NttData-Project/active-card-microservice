@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface CreditAccountRepository extends ReactiveMongoRepository<CreditAccount,String> {
-    Mono<CreditAccount> findByDni(String dni);
-    Flux<CreditAccount> findAllByDni(String dni);
-    Mono<CreditAccount> findByDniAndAccountNumber(String dni, String account);
+    Mono<CreditAccount> findByIdentifier(String identifier);
+    Flux<CreditAccount> findAllByIdentifier(String identifier);
+    Mono<CreditAccount> findByIdentifierAndAccountNumber(String identifier, String account);
 }
