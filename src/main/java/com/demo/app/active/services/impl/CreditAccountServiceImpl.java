@@ -66,4 +66,9 @@ public class CreditAccountServiceImpl implements CreditAccountService {
     public Mono<Void> delete(String id) {
         return creditAccountRepository.deleteById(id);
     }
+
+    @Override
+    public Mono<CreditAccount> findCreditAccountByIdentifier(String identifier) {
+        return creditAccountRepository.findByIdentifier(identifier);
+    }
 }

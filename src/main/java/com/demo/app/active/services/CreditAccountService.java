@@ -13,4 +13,5 @@ public interface CreditAccountService {
     Mono<Boolean> findByIdentifier(String identifier);
     Mono<CreditAccount> update(CreditAccount card,String id);
     Mono<Void> delete(String id);
+    Mono<CreditAccount> findCreditAccountByIdentifier(String identifier);
 }

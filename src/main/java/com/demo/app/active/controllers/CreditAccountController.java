@@ -61,4 +61,9 @@ public class CreditAccountController {
         return cardService.delete(id).map(ResponseEntity::ok).defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/idCreditAccount/{identifier}")
+    public Mono<CreditAccount> findCreditAccountByIdentifier(@PathVariable String identifier){
+        return cardService.findCreditAccountByIdentifier(identifier);
+    }
+
 }
