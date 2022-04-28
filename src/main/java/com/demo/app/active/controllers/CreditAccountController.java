@@ -28,6 +28,11 @@ public class CreditAccountController {
         return ResponseEntity.ok(cardService.findAll());
     }
 
+    @GetMapping("{id}")
+    public Mono<CreditAccount> findById(@PathVariable String id){
+        return cardService.findById(id);
+    }
+
     @GetMapping("/all/identifier/{identifier}")
     public Flux<CreditAccount> findAllByIdentifier(@PathVariable String identifier){
         return cardService.findAllByIdentifier(identifier);

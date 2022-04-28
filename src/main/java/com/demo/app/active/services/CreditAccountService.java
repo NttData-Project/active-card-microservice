@@ -10,6 +10,7 @@ public interface CreditAccountService {
     Flux<CreditAccount> saveAll(Flux<CreditAccount> cards);
     Flux<CreditAccount> findAllByIdentifier(String identifier);
     Mono<CreditAccount> findByIdentifierAndAccount(String identifier, String account);
+    Mono<CreditAccount> findById(String id);
     Mono<Boolean> findByIdentifier(String identifier);
     Mono<CreditAccount> update(CreditAccount card,String id);
     Mono<Void> delete(String id);

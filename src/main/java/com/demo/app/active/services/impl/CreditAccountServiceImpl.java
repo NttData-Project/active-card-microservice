@@ -73,6 +73,11 @@ public class CreditAccountServiceImpl implements CreditAccountService {
     }
 
     @Override
+    public Mono<CreditAccount> findById(String id) {
+        return creditAccountRepository.findById(id);
+    }
+
+    @Override
     public Mono<Boolean> findByIdentifier(String identifier) {
         return creditAccountRepository.findByIdentifier(identifier).hasElement().flatMap(CreditAccountServiceImpl::apply);
     }
