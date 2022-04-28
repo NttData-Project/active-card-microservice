@@ -23,7 +23,7 @@ public class CreditAccountServiceImpl implements CreditAccountService {
 
 
     public CreditAccountServiceImpl(CreditAccountRepository creditAccountRepository, WebClient.Builder webClientMovement,
-                                    @Value("${passive.card}") String movementUrl) {
+                                    @Value("${movement}") String movementUrl) {
         this.creditAccountRepository = creditAccountRepository;
         this.webClientMovement = webClientMovement.baseUrl(movementUrl).build();
     }
