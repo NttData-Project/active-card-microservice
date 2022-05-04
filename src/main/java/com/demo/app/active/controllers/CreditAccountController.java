@@ -2,6 +2,8 @@ package com.demo.app.active.controllers;
 
 import com.demo.app.active.entities.CreditAccount;
 import com.demo.app.active.services.CreditAccountService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,8 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RequestMapping("/creditAccount")
 @Tag(name = "Test APIs", description = "Test APIs for demo purpose")
+@TimeLimiter(name = "active-card-service")
+@CircuitBreaker(name = "active-card-service")
 public class CreditAccountController {
 
     private final CreditAccountService cardService;
